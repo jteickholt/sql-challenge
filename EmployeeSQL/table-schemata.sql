@@ -18,7 +18,8 @@ CREATE TABLE Employees (
 
 -- Create Dept_Emp Table.  It was not clear if the combination of emp_no and dept_no would uniquely 
 -- identify a row, so I created without primary keys and then added the serial id as primary key.  
--- I do define emp_no and dept_no as foreign keys.
+-- I do define emp_no and dept_no as foreign keys.  Before uploading data, make sure to upload data
+-- to Departments and Employees tables, as they are referenced in foreign key defititions.
 
 CREATE TABLE Dept_Emp (
 	emp_no VARCHAR NOT NULL,
@@ -28,14 +29,17 @@ CREATE TABLE Dept_Emp (
 	FOREIGN KEY (emp_no) REFERENCES Employees(emp_no),
     FOREIGN KEY (dept_no) REFERENCES Departments(dept_no));
 
--- Add serial id as primary key
+-- Add serial id as primary key.  Before adding, make sure to upload the data from the csv file.  Also need to make
+-- sure to upload the data to tables Employees and Departments first, as they are referenced in foreign key
+-- definitions.
 
 ALTER TABLE Dept_Emp
 ADD COLUMN id SERIAL PRIMARY KEY;	
 	
 -- Create Dept_Manager Table.  This file was small enough to visually inspect to see that the
 -- combination of dept_no and emp_no was unique, so defined each as primary keys. Also defined
--- each as foreign keys.
+-- each as foreign keys.  Need to make sure to upload the data to tables Employees and Departments 
+-- first, as they are referenced in foreign key definitions.
 
 CREATE TABLE Dept_Manager (
 	dept_no VARCHAR NOT NULL,
@@ -47,7 +51,8 @@ CREATE TABLE Dept_Manager (
 	FOREIGN KEY (emp_no) REFERENCES Employees(emp_no));	
 
 -- Create Salaries Table. I expected that there could be duplicate emp_no's, so did not define as 
--- primary key. Did define emp_no as foreign key and then added a serial primary key
+-- primary key. Did define emp_no as foreign key and then added a serial primary key.  Before uploading
+-- data, need to upload data to Employees table, as it is references in foreign key defintion.
 
 CREATE TABLE Salaries (
 	emp_no VARCHAR NOT NULL,
@@ -56,7 +61,9 @@ CREATE TABLE Salaries (
 	to_date DATE,
 	FOREIGN KEY (emp_no) REFERENCES Employees(emp_no));
 	
--- Add serial id as primary key
+-- Add serial id as primary key.  Before adding, make sure to upload the data from the csv file.  Also need to make
+-- sure to upload the data to Employees table first, as it is referenced in foreign key
+-- definition.
 
 ALTER TABLE Salaries
 ADD COLUMN id SERIAL PRIMARY KEY;
@@ -71,7 +78,9 @@ CREATE TABLE Titles (
 	to_date DATE,
     FOREIGN KEY (emp_no) REFERENCES Employees(emp_no));
 
--- Add serial id as primary key
+-- Add serial id as primary key.  Before adding, make sure to upload the data from the csv file.  Also need to make
+-- sure to upload the data to Employees table first, as it is referenced in foreign key
+-- definition.
 
 ALTER TABLE Titles
 ADD COLUMN id SERIAL PRIMARY KEY;
