@@ -1,11 +1,12 @@
--- Create Departments Table.  Use dept_no as primary key, as it will be unique
+-- Create Departments Table, which included department number (dept_no), and department name (dept_name).  
+-- Use dept_no as primary key, as it will be unique
 
 CREATE TABLE Departments (
 	dept_no VARCHAR NOT NULL,
 	dept_name VARCHAR NOT NULL,
 	PRIMARY KEY (dept_no));
 	
--- Create Employees Table.  Use emp_no as primary key as it will be unique
+-- Create Employees Table, which included details on employees.  Use emp_no as primary key as it will be unique
 
 CREATE TABLE Employees (
 	emp_no VARCHAR NOT NULL,
@@ -16,10 +17,10 @@ CREATE TABLE Employees (
 	hire_date DATE NOT NULL,
 	PRIMARY KEY (emp_no));
 
--- Create Dept_Emp Table.  It was not clear if the combination of emp_no and dept_no would uniquely 
--- identify a row, so I created without primary keys and then added the serial id as primary key.  
--- I do define emp_no and dept_no as foreign keys.  Before uploading data, make sure to upload data
--- to Departments and Employees tables, as they are referenced in foreign key defititions.
+-- Create Dept_Emp Table, which allows employees to be mapped to department.  It was not clear if the combination 
+-- of emp_no and dept_no would uniquely identify a row, so I created without primary keys and then added the 
+-- serial id as primary key.  I do define emp_no and dept_no as foreign keys.  Before uploading data, 
+-- make sure to upload data to Departments and Employees tables, as they are referenced in foreign key defititions.
 
 CREATE TABLE Dept_Emp (
 	emp_no VARCHAR NOT NULL,
