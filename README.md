@@ -1,6 +1,6 @@
 # sql-challenge
 
-## This repo contains the files used to create tabes in a PostgresSQL database as well as perform several queries from the database.  SQLAlchemy is also used in Python within a Jupyter notebook to query several of the tables and perform additonal analysis and create several visualisations.
+## This repo contains the files used to create tabes in a PostgresSQL database as well as perform several queries from the database.  The actual data was provided in csv file that were uploaded to the database tables after they were created. SQLAlchemy is also used in Python within a Jupyter notebook to query several of the tables and perform additonal analysis and create several visualisations.
 
 ### EmployeeSQL Folder:  This folder contains the SQL scripts and Jupyter notebook incuding:
 
